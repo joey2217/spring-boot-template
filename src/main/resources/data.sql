@@ -1,0 +1,1 @@
+INSERT INTO user (id, nickname, password, username, create_time, update_time, role) VALUES (1, 'admin', '$2a$10$27utm.02K9GK.4eSvQtD5e69EtyjSZUPKYZzKw3qPKBNVflS/yX.a', 'admin', '2022-12-16 16:51:05.557000', '2022-12-16 16:51:05.557000', 'ROLE_ADMIN');
