@@ -1,6 +1,6 @@
 # spring-boot-template
 
-# Getting Started
+> http://localhost:8080/swagger-ui/index.html#/
 
 ## aliyun docker
 
@@ -24,7 +24,9 @@ https://juejin.cn/post/6846687598442708999
 
 ### JWT
 
-https://github.com/jwtk/jjwt#jws-create-key
+> https://connect2id.com/products/nimbus-jose-jwt
+
+https://mp.weixin.qq.com/s/Jo3PZoa7nL99c8UCxPiTTA
 
 ## JPA
 

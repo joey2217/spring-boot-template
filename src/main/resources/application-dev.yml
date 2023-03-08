@@ -28,7 +28,6 @@ spring:
       continue-on-error: true
 jwt:
   expire: 43200 #12小时 12 * 60 * 60 S
-  tokenHeader: Authorization #JWT存储的请求头
   tokenHead: Bearer  #JWT负载中拿到开头
 logging:
   file:
