@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.joey</groupId>
     <artifactId>template</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>template</name>
     <description>template</description>
 
@@ -32,6 +32,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <dependency>
             <groupId>com.nimbusds</groupId>
@@ -69,8 +73,18 @@
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
+                    <image>
+                        <!--配置镜像名称-->
+                        <name>${project.name}:${project.version}</name>
+                        <env>
+                            <HTTP_PROXY>https://ghproxy.com</HTTP_PROXY>
+                            <HTTPS_PROXY>https://ghproxy.com</HTTPS_PROXY>
+                        </env>
+                        <!--镜像打包完成后自动推送到镜像仓库-->
+<!--                        <publish>true</publish>-->
+                    </image>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>

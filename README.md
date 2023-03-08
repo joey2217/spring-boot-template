@@ -40,9 +40,28 @@ https://spring.io/guides/gs/caching/
 
 ### Cache 注解
 
+> 保存对象需要 implements Serializable
+
 https://docs.spring.io/spring-framework/docs/current/reference/html/integration.html#cache-annotations
 
 https://zhuanlan.zhihu.com/p/77615122
+
+```xml
+<!--redis 不需要-->
+<!-- <dependency>-->
+<!--    <groupId>org.springframework.boot</groupId>-->
+<!--    <artifactId>spring-boot-starter-cache</artifactId>-->
+<!--</dependency>-->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+```
+
+```java
+@EnableCaching
+@Cacheable(cacheNames = "user",key = "#id")
+```
 
 ## 参数校验
 
@@ -51,6 +70,28 @@ https://blog.csdn.net/qq_43437874/article/details/116988733
 ## Docker
 
 https://spring.io/guides/topicals/spring-boot-docker/
+
+https://zhuanlan.zhihu.com/p/342179720
+
+```shell
+./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=myorg/myapp
+```
+
+```shell
+mkdir target/dependency
+(cd target/dependency; jar -xf ../*.jar)
+docker build -t myorg/myapp .
+```
+
+```dockerfile
+FROM eclipse-temurin:17-jdk-alpine
+VOLUME /tmp
+ARG DEPENDENCY=target/dependency
+COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
+COPY ${DEPENDENCY}/META-INF /app/META-INF
+COPY ${DEPENDENCY}/BOOT-INF/classes /app
+ENTRYPOINT ["java","-cp","app:app/lib/*","hello.Application"]
+```
 
 ## @Value读取配置
 

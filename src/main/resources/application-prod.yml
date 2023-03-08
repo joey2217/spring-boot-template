@@ -1,9 +1,9 @@
 spring:
   datasource:
-    url: jdbc:mysql://${MYSQL_URL}:${MYSQL_PORT}/${MYSQL_DATABASE}?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://template-mysql:3306/template?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${MYSQL_USERNAME}
-    password: ${MYSQL_PASSWORD}
+    username: root
+    password: 123456
   cache:
     type: redis
   jpa:
@@ -18,18 +18,17 @@ spring:
     properties:
       hibernate:
         format_sql: true
-    defer-datasource-initialization: true
   data:
     redis:
-      host: ${REDIS_HOST}
-      port: ${REDIS_PORT}
+      host: template-redis
+      port: 6379
   sql:
     init:
-      mode: always
+      mode: always # 初始化数据
       continue-on-error: true
 jwt:
   expire: 43200 #12小时 12 * 60 * 60 S
   tokenHead: Bearer  #JWT负载中拿到开头
 logging:
   file:
-    path: /var/log/user
+    path: /var/log/template

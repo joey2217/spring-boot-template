@@ -10,6 +10,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.io.Serializable;
+
 /**
  * @author Joey
  */
@@ -20,7 +22,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name = "user")
 @EntityListeners(AuditingEntityListener.class)
-public class UserDO extends BaseEntity {
+public class UserDO extends BaseEntity implements Serializable {
     /**
      * 用户名 手机号或邮箱
      */
