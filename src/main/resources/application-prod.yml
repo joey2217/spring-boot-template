@@ -29,6 +29,3 @@ spring:
 jwt:
   expire: 43200 #12小时 12 * 60 * 60 S
   tokenHead: Bearer  #JWT负载中拿到开头
-logging:
-  file:
-    path: /var/log/template
