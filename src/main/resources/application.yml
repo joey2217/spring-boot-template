@@ -2,4 +2,4 @@ spring:
   application:
     name: template
   profiles:
-    active: dev
+    active: prod

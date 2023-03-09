@@ -73,9 +73,13 @@ https://spring.io/guides/topicals/spring-boot-docker/
 
 https://zhuanlan.zhihu.com/p/342179720
 
+### spring-boot-maven-plugin build-image
+
 ```shell
 ./mvnw spring-boot:build-image -Dspring-boot.build-image.imageName=myorg/myapp
 ```
+
+### Dockerfile
 
 ```shell
 mkdir target/dependency
@@ -90,7 +94,7 @@ ARG DEPENDENCY=target/dependency
 COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
 COPY ${DEPENDENCY}/META-INF /app/META-INF
 COPY ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","hello.Application"]
+ENTRYPOINT ["java","-cp","app:app/lib/*","template.Application"]
 ```
 
 ## @Value读取配置
